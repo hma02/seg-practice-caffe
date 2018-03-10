@@ -6,14 +6,14 @@ layer {
   include {
     phase: TRAIN
   }
-  # transform_param {
-  #   scale: 0.017
+  transform_param {
+    scale: 0.00390625
   #   mirror: false
   #   crop_size: 224
   #   mean_value: [103.94,116.78,123.68]
-  # }
+  }
   data_param {
-      source: "/home/allanma/data/hairlmdb/toy/Train_Data_lmdb"
+      source: "/home/allanma/data/hairlmdb/realdata/train_data"
       batch_size: 1
       backend: LMDB
   }
@@ -25,14 +25,14 @@ layer {
   include {
     phase: TRAIN
   }
-  # transform_param {
-  #   scale: 0.017
+  transform_param {
+    scale: 0.00390625
   #   mirror: false
   #   crop_size: 224
   #   mean_value: [103.94,116.78,123.68]
-  # }
+  }
   data_param {
-      source: "/home/allanma/data/hairlmdb/toy/Train_Label_lmdb"
+      source: "/home/allanma/data/hairlmdb/realdata/train_label"
       batch_size: 1
       backend: LMDB
   }
@@ -45,14 +45,14 @@ layer {
   include {
     phase: TEST
   }
-  # transform_param {
-  #   scale: 0.017
+  transform_param {
+    scale: 0.00390625
   #   mirror: false
   #   crop_size: 224
   #   mean_value: [103.94,116.78,123.68]
-  # }
+  }
   data_param {
-    source: "/home/allanma/data/hairlmdb/toy/Test_Data_lmdb"
+    source: "/home/allanma/data/hairlmdb/realdata/test_data"
     batch_size: 1
     backend: LMDB
   }
@@ -64,14 +64,14 @@ layer {
   include {
     phase: TEST
   }
-  # transform_param {
-  #   scale: 0.017
+  transform_param {
+    scale: 0.00390625
   #   mirror: false
   #   crop_size: 224
   #   mean_value: [103.94,116.78,123.68]
-  # }
+  }
   data_param {
-      source: "/home/allanma/data/hairlmdb/toy/Test_Label_lmdb"
+      source: "/home/allanma/data/hairlmdb/realdata/test_label"
       batch_size: 1
       backend: LMDB
   }
