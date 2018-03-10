@@ -1,6 +1,6 @@
 name: "MOBILENET"
 layer {
-  name: "input"
+  name: "data"
   type: "Input"
   top: "data"
   input_param {
@@ -1069,5 +1069,5 @@ layer {
   name: "loss"
   type: "Softmax"
   bottom: "output/conv/sep"
-  top: "prob"
+  top: "loss"
 }

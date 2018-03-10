@@ -13,7 +13,7 @@ layer {
   #   mean_value: [103.94,116.78,123.68]
   # }
   data_param {
-      source: "/home/allanma/data/Train_Data_lmdb"
+      source: "/home/allanma/data/hairlmdb/toy/Train_Data_lmdb"
       batch_size: 1
       backend: LMDB
   }
@@ -32,7 +32,7 @@ layer {
   #   mean_value: [103.94,116.78,123.68]
   # }
   data_param {
-      source: "/home/allanma/data/Train_Label_lmdb"
+      source: "/home/allanma/data/hairlmdb/toy/Train_Label_lmdb"
       batch_size: 1
       backend: LMDB
   }
@@ -52,7 +52,7 @@ layer {
   #   mean_value: [103.94,116.78,123.68]
   # }
   data_param {
-    source: "/home/allanma/data/Test_Data_lmdb"
+    source: "/home/allanma/data/hairlmdb/toy/Test_Data_lmdb"
     batch_size: 1
     backend: LMDB
   }
@@ -71,7 +71,7 @@ layer {
   #   mean_value: [103.94,116.78,123.68]
   # }
   data_param {
-      source: "/home/allanma/data/Test_Label_lmdb"
+      source: "/home/allanma/data/hairlmdb/toy/Test_Label_lmdb"
       batch_size: 1
       backend: LMDB
   }
@@ -1133,9 +1133,6 @@ layer {
   loss_param {
     #ignore_label: 255
     normalize: true
-  }
-  exclude {
-    stage: "deploy"
   }
 }
 # layer {

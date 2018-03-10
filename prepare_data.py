@@ -22,12 +22,13 @@ LabelWidth = 224 # Downscaled width of the label
 
 # Read the files in the Data Folder
 
-inputs_data_train = sorted(glob.glob("/home/allanma/data/TrainData/image/*.jpg"))
-inputs_data_valid = sorted(glob.glob("/home/allanma/data/ValData/image/*.jpg"))
-inputs_label_train = sorted(glob.glob("/home/allanma/data/TrainData/label/*.png"))
-inputs_label_valid = sorted(glob.glob("/home/allanma/data/ValData/label/*.png"))
+inputs_data_train = sorted(glob.glob("/home/allanma/data/hair/toydata/TrainData/*.jpg"))
+inputs_label_train = sorted(glob.glob("//home/allanma/data/hair/toydata/TrainData/*.png"))
 
+inputs_data_valid = sorted(glob.glob("/home/allanma/data/hair/toydata/ValData/*.jpg"))
+inputs_label_valid = sorted(glob.glob("/home/allanma/data/hair/toydata/ValData/*.png"))
 
+target_dir = '/home/allanma/data/hairlmdb/toy'
 # shuffle(inputs_data_train) # Shuffle the DataSet
 # shuffle(inputs_data_valid) # Shuffle the DataSet
 
@@ -44,7 +45,7 @@ inputs_Test_label = inputs_label_valid[:NumberTest] # Extract the testing data f
 
 print("Creating Training Data LMDB File ..... ")
 
-in_db = lmdb.open('/home/allanma/data/Train_Data_lmdb',map_size=10485760)
+in_db = lmdb.open(target_dir+'/Train_Data_lmdb',map_size=10485760)
 
 with in_db.begin(write=True) as in_txn:
 
@@ -70,7 +71,7 @@ in_db.close()
 
 print("Creating Training Label LMDB File ..... ")
 
-in_db = lmdb.open('/home/allanma/data/Train_Label_lmdb',map_size=10485760)
+in_db = lmdb.open(target_dir+'/Train_Label_lmdb',map_size=10485760)
 
 with in_db.begin(write=True) as in_txn:
 
@@ -100,7 +101,7 @@ in_db.close()
 
 print("Creating Testing Data LMDB File ..... ")
 
-in_db = lmdb.open('/home/allanma/data/Test_Data_lmdb',map_size=10485760)
+in_db = lmdb.open(target_dir+'/Test_Data_lmdb',map_size=10485760)
 
 with in_db.begin(write=True) as in_txn:
 
@@ -126,7 +127,7 @@ in_db.close()
 
 print("Creating Testing Label LMDB File ..... ")
 
-in_db = lmdb.open('/home/allanma/data/Test_Label_lmdb',map_size=10485760)
+in_db = lmdb.open(target_dir+'/Test_Label_lmdb',map_size=10485760)
 
 with in_db.begin(write=True) as in_txn:
 
