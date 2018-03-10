@@ -24,7 +24,7 @@ LabelWidth = 128 # Downscaled width of the label
 toy=False
 
 if toy:
-    folder='toydata'
+    folder='realdata'
     print 'generating toydata'
     NumberTrain = 3 # Number of Training Images
     NumberTest = 1 # Number of Testing Images
@@ -111,7 +111,7 @@ def create_label_lmdb(inputs=inputs_Train_label,target_folder='train_label'):
             # print L[L.shape[0]/2:]
 
             if len(L.shape)==3:
-                L = L[:,:,0]
+                L = L[:,:,0] # when it is close to black or close to white, the RGB pixels are all very large or all very small, so taking one of them is close to taking the mean of them
             
             L = L.reshape(L.shape[0],L.shape[1],1)
 
@@ -163,6 +163,8 @@ def read_lmdb(lmdb_path=target_dir+'train_data'):
             image = np.transpose(image, (1, 2, 0))    # -> height, width, channels
             
             if len(image.shape)==3:
+                
+                # print np.histogram(image,bins=256)
                 
                 image = image[:,:,::-1]                   # BGR -> RGB
                 
